@@ -44,9 +44,7 @@
       </div>
       <div class="col-12 form-group">
         <label class="col-form-label">Provinsi <span class="text-danger">*</span></label>
-        <select class="form-control" required v-model="form.provinsi">
-          <input type="text" class="form-control" required v-model="form.provinsi" />
-        </select>
+        <input type="text" class="form-control" required v-model="form.provinsi" />
         <span v-if="form.errors().has('provinsi')" class="error"><small>{{ form.errors().get('provinsi') }}</small></span>
       </div>
       <div class="col-12 form-group">
