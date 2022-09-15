@@ -46,7 +46,7 @@
         <label class="col-form-label">Provinsi <span class="text-danger">*</span></label>
         <select class="form-control" required v-model="form.provinsi">
           <option value="" disabled>Pilih Provinsi</option>
-          <option v-for="prov in form.data_provinsi" :key="prov.id" :value="prov.name">{{ prov.name }}</option>
+          <input type="text" class="form-control" required v-model="form.provinsi" />
         </select>
         <span v-if="form.errors().has('provinsi')" class="error"><small>{{ form.errors().get('provinsi') }}</small></span>
       </div>
@@ -122,7 +122,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import form from 'vuejs-form';
 
 export default {
@@ -190,11 +189,6 @@ export default {
         'alasan.required': 'Alasan harus diisi',
       }),
   }),
-
-  mounted() {
-    axios.get('http://www.emsifa.com/api-wilayah-indonesia/api/provinces.json')
-      .then(response => (this.form.data_provinsi = response.data));
-  },
 
   methods: {
     uploadKtp(event) {
